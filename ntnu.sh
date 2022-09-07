@@ -7,7 +7,7 @@ FOLDER=~/ntnu
 PROJECTS=$(find $FOLDER -mindepth 1 -maxdepth 1 | awk -F "/" '{ print $NF }')
 
 # Display the list of projects and allow the user to choose
-CHOICE=$(echo "$PROJECTS" | fzf --border --margin 1,5%)
+CHOICE=$(echo "$PROJECTS" | fzf --border --margin 1,5% --preview "tree -L 2 $FOLDER/{}")
 
 # Change directory to the chosen project
 cd $FOLDER/$CHOICE
